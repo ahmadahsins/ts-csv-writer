@@ -1,6 +1,5 @@
-import { appendFileSync, mkdirSync } from 'fs';
-import { dirname } from 'path';
-class CSVWriter {
+import { appendFileSync } from 'fs';
+export class CSVWriter {
     colums;
     constructor(colums) {
         this.colums = colums;
@@ -21,14 +20,4 @@ class CSVWriter {
         return this.colums.map((col) => p[col]).join(',');
     }
 }
-const writer = new CSVWriter(["id", "amount", "to", "notes"]);
-writer.addRows([
-    {
-        id: 1, amount: 50, to: 'yoshi', notes: 'for design work',
-    },
-    {
-        id: 2, amount: 100, to: 'mario', notes: 'for dev work',
-    }
-]);
-writer.save("./data/payments.csv");
 //# sourceMappingURL=index.js.map
